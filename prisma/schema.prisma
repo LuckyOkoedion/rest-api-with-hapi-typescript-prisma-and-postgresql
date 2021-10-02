@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Attendance {
+   id Int @id @default(autoincrement())
+   eventName String @db.VarChar(255)
+   date String @db.VarChar(255)
+   user Int 
+}
+
+model Inventory {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(255)
+  description String
+  dateAcquired String @db.VarChar(255)
+  initialValue Decimal @db.Decimal(9, 2)
+  calculatedDepreciation Decimal @db.Decimal(9, 2)
+  currentLocation String
+  inWhoseCustody Int
+  custodyApprovedBy Int
+}
+
+
+model OfferingRecords {
+   id Int @id @default(autoincrement())
+   eventName String
+   date String @db.VarChar(255)
+   amount Decimal @db.Decimal(9, 2)
+
+}
+
+model Teachings {
+  id Int @id @default(autoincrement())
+  eventName String @db.VarChar(255)
+  date String @db.VarChar(255)
+  preacher String @db.VarChar(255)
+  topic String @db.VarChar(255)
+  summary String
+  audioLink String @db.VarChar(255)
+  videoLink String @db.VarChar(255)
+  slidesLink String @db.VarChar(255)
+
+}
+
+model TitheRecords {
+  id Int @id @default(autoincrement())
+  date String @db.VarChar(255)
+  user Int
+  amount Decimal @db.Decimal(9, 2)
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  email String @db.VarChar(255) @unique
+  name String @db.VarChar(255)
+  role String @db.VarChar(255) @default("member")
+  phoneNumber String @db.VarChar(255)
+  permissions String
+}

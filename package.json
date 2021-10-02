@@ -1,0 +1,28 @@
+{
+  "name": "church-office-management-rest-api",
+  "version": "1.0.0",
+  "description": "This is a church office management REST api built with Hapi js, Tsoa , Prisma ORM and Postgresql. With Unit tests and End-toEnd tests.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuckyOkoedion/rest-api-with-hapi-typescript-tsoa-prisma-and-postgresql.git"
+  },
+  "author": "Lucky Okoedion",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuckyOkoedion/rest-api-with-hapi-typescript-tsoa-prisma-and-postgresql/issues"
+  },
+  "homepage": "https://github.com/LuckyOkoedion/rest-api-with-hapi-typescript-tsoa-prisma-and-postgresql#readme",
+  "dependencies": {
+    "@hapi/hapi": "^20.2.0",
+    "@types/hapi": "^18.0.6",
+    "@types/node": "^16.10.2",
+    "prisma": "^3.1.1",
+    "ts-node": "^10.2.1",
+    "tsoa": "^3.11.2",
+    "typescript": "^4.4.3"
+  }
+}
