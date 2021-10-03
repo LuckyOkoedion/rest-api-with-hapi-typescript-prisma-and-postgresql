@@ -1,35 +1,72 @@
-import { Route, Controller, Post, Body, Get, Path, Put, Delete } from "tsoa";
-import { CreateUser, User, UpdateUser } from "./user";
+import * as Hapi from "@hapi/hapi";
+import { CreateUser, UpdateUser } from "./user";
+import { UserService } from "./userService";
+import Boom from "@hapi/boom";
 
-@Route("users")
-export class UsersController extends Controller {
+export class UserController {
 
-    @Post()
-    public async create(@Body() requestBody: CreateUser)
-    : Promise<User> {
-        return new UsersService().create(requestBody);
-    }
 
-    @Get()
-    public async getAll(): Promise<User[]> {
-        return new UsersService().getAll();
-    }
-    
-    @Get("{id}")
-    public async getById(@Path() id: number) : Promise<User>{
-        return new UsersService().getById(id);
-    }
-
-    @Put("{id}")
-    public async update(@Path() id: number, @Body() requestBody : UpdateUser) 
-    : Promise<User> {
-        return new UsersService().update(requestBody, id);
+    public async create(request: Hapi.Request, h: Hapi.ResponseToolkit) {
+        try {
+            const requestBody: CreateUser = request.payload as CreateUser
+            const result = await new UserService().create(requestBody);
+            return h.response(result).code(201);
+        } catch (error) {
+            request.log("error", error);
+            return Boom.badImplementation(JSON.stringify(error))
+        }
 
     }
 
-    @Delete("{id}")
-    public async delete(@Path() id: number): Promise<void> {
-        return new UsersService().delete(id);
+
+    public async getAll(request: Hapi.Request, h: Hapi.ResponseToolkit) {
+        try {
+            const result = await new UserService().getAll();
+            return h.response(result).code(200);
+        } catch (error) {
+            request.log("error", error);
+            return Boom.badImplementation(JSON.stringify(error))
+        }
+    }
+
+
+    public async getById(request: Hapi.Request, h: Hapi.ResponseToolkit) {
+        try {
+            const id: number = +request.params.id;
+            const result = await new UserService().getById(id);
+            return h.response(result).code(200);
+        } catch (error) {
+            request.log("error", error);
+            return Boom.badImplementation(JSON.stringify(error))
+        }
+
+    }
+
+
+    public async update(request: Hapi.Request, h: Hapi.ResponseToolkit) {
+        try {
+            const id: number = +request.params.id;
+            const requestBody: UpdateUser = request.payload as UpdateUser;
+            const result = await new UserService().update(requestBody, id);
+            return h.response(result).code(200);
+        } catch (error) {
+            request.log("error", error);
+            return Boom.badImplementation(JSON.stringify(error))
+        }
+
+
+    }
+
+
+    public async delete(request: Hapi.Request, h: Hapi.ResponseToolkit) {
+        try {
+            const id: number = +request.params.id;
+            const result = await new UserService().delete(id);
+            return h.response(result).code(200);
+        } catch (error) {
+            request.log("error", error);
+            return Boom.badImplementation(JSON.stringify(error))
+        }
     }
 
 }

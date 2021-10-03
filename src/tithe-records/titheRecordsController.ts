@@ -1,35 +1,72 @@
-import { Route, Controller, Post, Body, Get, Path, Put, Delete } from "tsoa";
-import { CreateTitheRecords, TitheRecords, UpdateTitheRecords } from "./tithe-record";
+import * as Hapi from "@hapi/hapi";
+import { CreateTitheRecords, UpdateTitheRecords } from "./tithe-record";
+import { TitheRecordsService } from "./titheRecordsService";
+import Boom  from "@hapi/boom";
 
-@Route("tithe-records")
-export class TitheRecordsController extends Controller {
+export class TitheRecordsController {
 
-    @Post()
-    public async create(@Body() requestBody: CreateTitheRecords)
-    : Promise<TitheRecords> {
-        return new TitheRecordsService().create(requestBody);
-    }
-
-    @Get()
-    public async getAll(): Promise<TitheRecords[]> {
-        return new TitheRecordsService().getAll();
-    }
     
-    @Get("{id}")
-    public async getById(@Path() id: number) : Promise<TitheRecords>{
-        return new TitheRecordsService().getById(id);
+    public async create(request: Hapi.Request, h: Hapi.ResponseToolkit) {
+        try {
+            const requestBody: CreateTitheRecords = request.payload as CreateTitheRecords
+            const result = await new TitheRecordsService().create(requestBody);
+            return h.response(result).code(201);
+        } catch (error) {
+            request.log("error", error);
+            return Boom.badImplementation(JSON.stringify(error))
+        }
+
     }
 
-    @Put("{id}")
-    public async update(@Path() id: number, @Body() requestBody : UpdateTitheRecords) 
-    : Promise<TitheRecords> {
-        return new TitheRecordsService().update(requestBody, id);
+
+    public async getAll(request: Hapi.Request, h: Hapi.ResponseToolkit) {
+        try {
+            const result = await new TitheRecordsService().getAll();
+            return h.response(result).code(200);
+        } catch (error) {
+            request.log("error", error);
+            return Boom.badImplementation(JSON.stringify(error))
+        }
+    }
+
+
+    public async getById(request: Hapi.Request, h: Hapi.ResponseToolkit) {
+        try {
+            const id: number = +request.params.id;
+            const result = await new TitheRecordsService().getById(id);
+            return h.response(result).code(200);
+        } catch (error) {
+            request.log("error", error);
+            return Boom.badImplementation(JSON.stringify(error))
+        }
 
     }
 
-    @Delete("{id}")
-    public async delete(@Path() id: number): Promise<void> {
-        return new TitheRecordsService().delete(id);
+
+    public async update(request: Hapi.Request, h: Hapi.ResponseToolkit) {
+        try {
+            const id: number = +request.params.id;
+            const requestBody: UpdateTitheRecords = request.payload as UpdateTitheRecords;
+            const result = await new TitheRecordsService().update(requestBody, id);
+            return h.response(result).code(200);
+        } catch (error) {
+            request.log("error", error);
+            return Boom.badImplementation(JSON.stringify(error))
+        }
+
+
+    }
+
+
+    public async delete(request: Hapi.Request, h: Hapi.ResponseToolkit) {
+        try {
+            const id: number = +request.params.id;
+            const result = await new TitheRecordsService().delete(id);
+            return h.response(result).code(200);
+        } catch (error) {
+            request.log("error", error);
+            return Boom.badImplementation(JSON.stringify(error))
+        }
     }
 
 }

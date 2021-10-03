@@ -1,35 +1,72 @@
-import { Route, Controller, Post, Body, Get, Path, Put, Delete } from "tsoa";
-import { CreateInventory, Inventory, UpdateInventory } from "./inventory";
+import Boom from "@hapi/boom";
+import * as Hapi from "@hapi/hapi";
+import { CreateInventory, UpdateInventory } from "./inventory";
+import { InventoryService } from "./inventoryService";
 
-@Route("inventory")
-export class InventoryController extends Controller {
 
-    @Post()
-    public async create(@Body() requestBody: CreateInventory)
-    : Promise<Inventory> {
-        return new InventoryService().create(requestBody);
-    }
+export class InventoryController {
 
-    @Get()
-    public async getAll(): Promise<Inventory[]> {
-        return new InventoryService().getAll();
-    }
-    
-    @Get("{id}")
-    public async getById(@Path() id: number) : Promise<Inventory>{
-        return new InventoryService().getById(id);
-    }
-
-    @Put("{id}")
-    public async update(@Path() id: number, @Body() requestBody : UpdateInventory) 
-    : Promise<Inventory> {
-        return new InventoryService().update(requestBody, id);
+    public async create(request: Hapi.Request, h: Hapi.ResponseToolkit) {
+        try {
+            const requestBody: CreateInventory = request.payload as CreateInventory
+            const result = await new InventoryService().create(requestBody);
+            return h.response(result).code(201);
+        } catch (error) {
+            request.log("error", error);
+            return Boom.badImplementation(JSON.stringify(error))
+        }
 
     }
 
-    @Delete("{id}")
-    public async delete(@Path() id: number): Promise<void> {
-        return new InventoryService().delete(id);
+
+    public async getAll(request: Hapi.Request, h: Hapi.ResponseToolkit) {
+        try {
+            const result = await new InventoryService().getAll();
+            return h.response(result).code(200);
+        } catch (error) {
+            request.log("error", error);
+            return Boom.badImplementation(JSON.stringify(error))
+        }
+    }
+
+
+    public async getById(request: Hapi.Request, h: Hapi.ResponseToolkit) {
+        try {
+            const id: number = +request.params.id;
+            const result = await new InventoryService().getById(id);
+            return h.response(result).code(200);
+        } catch (error) {
+            request.log("error", error);
+            return Boom.badImplementation(JSON.stringify(error))
+        }
+
+    }
+
+
+    public async update(request: Hapi.Request, h: Hapi.ResponseToolkit) {
+        try {
+            const id: number = +request.params.id;
+            const requestBody: UpdateInventory = request.payload as UpdateInventory;
+            const result = await new InventoryService().update(requestBody, id);
+            return h.response(result).code(200);
+        } catch (error) {
+            request.log("error", error);
+            return Boom.badImplementation(JSON.stringify(error))
+        }
+
+
+    }
+
+
+    public async delete(request: Hapi.Request, h: Hapi.ResponseToolkit) {
+        try {
+            const id: number = +request.params.id;
+            const result = await new InventoryService().delete(id);
+            return h.response(result).code(200);
+        } catch (error) {
+            request.log("error", error);
+            return Boom.badImplementation(JSON.stringify(error))
+        }
     }
 
 }

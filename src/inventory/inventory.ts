@@ -3,10 +3,10 @@ export interface Inventory {
     name: string;
     description: string;
     dateAcquired: string;
-    initialValue: number;
-    calculatedDepreciation: number;
+    initialValue: any;
+    calculatedDepreciation: any;
     currentLocation: string;
-    inWhoseCustody: string;
+    inWhoseCustody: number;
     custodyApprovedBy: number;
 
 }
@@ -15,10 +15,10 @@ export interface CreateInventory {
     name: string;
     description: string;
     dateAcquired: string;
-    initialValue: number;
-    calculatedDepreciation: number;
+    initialValue: any;
+    calculatedDepreciation: any;
     currentLocation: string;
-    inWhoseCustody: string;
+    inWhoseCustody: number;
     custodyApprovedBy: number;
 
 }
@@ -27,10 +27,10 @@ export interface UpdateInventory {
     name?: string;
     description?: string;
     dateAcquired?: string;
-    initialValue?: number;
-    calculatedDepreciation?: number;
+    initialValue?: any;
+    calculatedDepreciation?: any;
     currentLocation?: string;
-    inWhoseCustody?: string;
+    inWhoseCustody?: number;
     custodyApprovedBy?: number;
 
 }
