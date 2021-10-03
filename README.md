@@ -1,5 +1,5 @@
 # rest-api-with-hapi-typescript-tsoa-prisma-and-postgresql
 
-This is a church office management REST api built with Hapi js, TypeScript Open API (TSOA) library, Prisma ORM and Postgresql. With Unit tests and End-toEnd tests.
+This is a church office management REST api built with Hapi js, TypeScript, Prisma ORM and Postgresql. With Unit tests and End-toEnd tests.
 
-It has an auto generated documentation with OpenAPI v3 specification, courtesy of TSOA. 
+It is an example of how to modularize / structure hapi API implementation into controllers and services. Good separation of concerns for ease of maintenance for large projects, and type safety, courtesy of typescript.

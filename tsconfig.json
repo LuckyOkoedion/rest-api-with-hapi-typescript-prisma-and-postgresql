@@ -4,22 +4,22 @@
       "incremental": true,
       "target": "es6",
       "module": "commonjs",
-      "outDir": "build",
+      "outDir": "dist",
   
       /* Strict Type-Checking Options */
-      "strict": true,
-      "noImplicitAny": true,
-      "strictNullChecks": true,
-      "strictFunctionTypes": true,
-      "strictBindCallApply": true,
-      "strictPropertyInitialization": true,
-      "noImplicitThis": true,
-      "alwaysStrict": true,
+      // "strict": true,
+      // "noImplicitAny": true,
+      // "strictNullChecks": false,
+      // "strictFunctionTypes": true,
+      // "strictBindCallApply": true,
+      // "strictPropertyInitialization": false,
+      // "noImplicitThis": true,
+      // "alwaysStrict": true,
   
       /* Additional Checks */
       "noUnusedLocals": true,
       "noUnusedParameters": true,
-      "noImplicitReturns": true,
+      "noImplicitReturns": false,
       "noFallthroughCasesInSwitch": true,
   
       /* Module Resolution Options */
@@ -33,5 +33,6 @@
   
       /* Advanced Options */
       "forceConsistentCasingInFileNames": true
-    }
+    },
+    "exclude": ["dist", "prisma", "tests"]
   }
