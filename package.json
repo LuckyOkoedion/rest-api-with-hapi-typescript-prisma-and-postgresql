@@ -37,7 +37,8 @@
     "ts-jest": "^27.0.5",
     "ts-node": "^10.2.1",
     "ts-node-dev": "^1.1.8",
-    "typescript": "^4.4.3"
+    "typescript": "^4.4.3",
+    "hapi-swagger": "^14.2.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.2.0",
@@ -52,7 +53,6 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.24.2",
-    "hapi-swagger": "^14.2.4",
     "husky": "^7.0.2",
     "prettier": "^2.4.1",
     "pretty-quick": "^3.1.1",

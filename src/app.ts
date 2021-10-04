@@ -7,9 +7,11 @@ import offeringRecordsRoutes from "./offering-records/offeringRecordsRoutes";
 import teachingsRoutes from "./teachings/teachingsRoutes";
 import titheRecordsRoutes from "./tithe-records/titheRecordsRoutes";
 import userRoutes from "./users/usersRoutes";
-import * as HapiSwagger from "hapi-swagger";
+import * as HapiSwagger from "../node_modules/hapi-swagger";
 import * as Inert from "@hapi/inert";
 import * as Vision from "@hapi/vision";
+
+
 
 
 
