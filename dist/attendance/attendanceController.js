@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AttendanceController = void 0;
 const attendanceService_1 = require("./attendanceService");
-const boom_1 = __importDefault(require("boom"));
+const boom_1 = __importDefault(require("@hapi/boom"));
 class AttendanceController {
     create(request, h) {
         return __awaiter(this, void 0, void 0, function* () {

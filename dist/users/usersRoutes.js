@@ -20,27 +20,42 @@ const userRoutes = {
             {
                 method: 'POST',
                 path: '/users',
-                handler: controller.create
+                handler: controller.create,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'GET',
                 path: '/users',
-                handler: controller.getAll
+                handler: controller.getAll,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'GET',
                 path: '/users/{id}',
-                handler: controller.getById
+                handler: controller.getById,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'PUT',
                 path: '/users/{id}',
-                handler: controller.update
+                handler: controller.update,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'DELETE',
                 path: '/users/{id}',
-                handler: controller.delete
+                handler: controller.delete,
+                options: {
+                    tags: ['api']
+                }
             }
         ]);
     })

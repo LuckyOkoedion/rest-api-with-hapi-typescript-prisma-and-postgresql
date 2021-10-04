@@ -20,27 +20,42 @@ const offeringRecordsRoutes = {
             {
                 method: 'POST',
                 path: '/offering-records',
-                handler: controller.create
+                handler: controller.create,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'GET',
                 path: '/offering-records',
-                handler: controller.getAll
+                handler: controller.getAll,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'GET',
                 path: '/offering-records/{id}',
-                handler: controller.getById
+                handler: controller.getById,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'PUT',
                 path: '/offering-records/{id}',
-                handler: controller.update
+                handler: controller.update,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'DELETE',
                 path: '/offering-records/{id}',
-                handler: controller.delete
+                handler: controller.delete,
+                options: {
+                    tags: ['api']
+                }
             }
         ]);
     })

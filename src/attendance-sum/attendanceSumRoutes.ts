@@ -12,27 +12,42 @@ const attendanceSumRoutes = {
             {
                 method: 'POST',
                 path: '/attendance-sum',
-                handler: controller.create
+                handler: controller.create,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'GET',
                 path: '/attendance-sum',
-                handler: controller.getAll
+                handler: controller.getAll,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'GET',
                 path: '/attendance-sum/{id}',
-                handler: controller.getById
+                handler: controller.getById,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'PUT',
                 path: '/attendance-sum/{id}',
-                handler: controller.update
+                handler: controller.update,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'DELETE',
                 path: '/attendance-sum/{id}',
-                handler: controller.delete
+                handler: controller.delete,
+                options: {
+                    tags: ['api']
+                }
             }
         ]);
     }

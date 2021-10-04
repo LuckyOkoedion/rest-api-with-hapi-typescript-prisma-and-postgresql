@@ -68,7 +68,7 @@ model TitheRecords {
 
 model User {
   id          Int    @id @default(autoincrement())
-  email       String @unique @db.VarChar(255)
+  email       String @db.VarChar(255)
   name        String @db.VarChar(255)
   role        String @default("member") @db.VarChar(255)
   phoneNumber String @db.VarChar(255)
