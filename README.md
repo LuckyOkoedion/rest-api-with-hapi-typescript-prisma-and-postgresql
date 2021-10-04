@@ -12,7 +12,7 @@ Prisma ORM is a typescript ORM that helps with database migration, etc.
 
 ## Documentation link for reference and demo
 
-[LINK TO DOCUMENTATION](https://church-management-api.herokuapp.com/documentation)
+[LINK TO DEMO AND DOCUMENTATION](https://church-management-api.herokuapp.com/documentation)
 
 ## SIDE NOTE
 
@@ -63,4 +63,3 @@ Test without watching
 ```bash
 $ npm run test
 ```
-
