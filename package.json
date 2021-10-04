@@ -1,32 +1,38 @@
 {
   "name": "church-office-management-rest-api",
   "version": "1.0.0",
-  "description": "This is a church office management REST api built with Hapi js, Tsoa , Prisma ORM and Postgresql. With Unit tests and End-toEnd tests.",
-  "main": "index.js",
+  "description": "There are not many working examples out there on how to use one of the alternatives to express js called 'Hapi Js' with typescript and effective setup for complex projects. This is a church office management REST api built with Hapi js, Typescript , Prisma ORM and Postgresql. It is an example of how to structure a hapi js REST Api project into models, routes, controllers and services for effective separation of concerns and unit testing.",
   "scripts": {
     "migrate-db": "npx prisma db push",
-    "generate-routes": "tsoa routes",
+    "prebuild": "rimraf dist",
     "build": "prisma generate && tsc",
     "start": "node dist/server.js",
-    "dev": "ts-node-dev --respawn server.ts"
+    "dev": "ts-node-dev --respawn server.ts",
+    "test": "TEST=true jest",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LuckyOkoedion/rest-api-with-hapi-typescript-tsoa-prisma-and-postgresql.git"
+    "url": "git+https://github.com/LuckyOkoedion/rest-api-with-hapi-typescript-prisma-and-postgresql.git"
   },
   "author": "Lucky Okoedion",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LuckyOkoedion/rest-api-with-hapi-typescript-tsoa-prisma-and-postgresql/issues"
+    "url": "https://github.com/LuckyOkoedion/rest-api-with-hapi-typescript-prisma-and-postgresql/issues"
   },
-  "homepage": "https://github.com/LuckyOkoedion/rest-api-with-hapi-typescript-tsoa-prisma-and-postgresql#readme",
+  "homepage": "https://github.com/LuckyOkoedion/rest-api-with-hapi-typescript-prisma-and-postgresql#readme",
   "dependencies": {
     "@hapi/boom": "^9.1.4",
     "@hapi/hapi": "^20.2.0",
+    "@hapi/inert": "^6.0.4",
+    "@hapi/vision": "^6.1.0",
     "@prisma/client": "^3.1.1",
+    "@types/chai": "^4.2.22",
     "@types/hapi": "^18.0.6",
     "@types/jest": "^27.0.2",
-    "@types/node": "^16.10.2",
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
     "jest": "^27.2.4",
     "ts-jest": "^27.0.5",
     "ts-node": "^10.2.1",
@@ -34,7 +40,23 @@
     "typescript": "^4.4.3"
   },
   "devDependencies": {
+    "@commitlint/cli": "^13.2.0",
+    "@commitlint/config-conventional": "^13.2.0",
+    "@tsconfig/recommended": "^1.0.1",
     "@types/hapi__hapi": "^20.0.9",
+    "@types/hapi__inert": "^5.2.3",
+    "@types/hapi__joi": "^17.1.7",
+    "@types/hapi__vision": "^5.5.3",
+    "@types/node": "^16.10.2",
+    "@typescript-eslint/eslint-plugin": "^4.32.0",
+    "@typescript-eslint/parser": "^4.32.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "hapi-swagger": "^14.2.4",
+    "husky": "^7.0.2",
+    "prettier": "^2.4.1",
+    "pretty-quick": "^3.1.1",
     "prisma": "^3.1.1"
   },
   "engines": {

@@ -1,8 +1,8 @@
 
 import { UpdateAttendance } from "./attendance";
 import { AttendanceCreationParams, AttendanceService } from "./attendanceService";
-import Hapi from "@hapi/hapi";
-import Boom from "boom";
+import * as Hapi from "@hapi/hapi";
+import Boom from "@hapi/boom";
 
 
 

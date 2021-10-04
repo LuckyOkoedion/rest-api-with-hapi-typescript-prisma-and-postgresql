@@ -20,27 +20,42 @@ const titheRecordsRoutes = {
             {
                 method: 'POST',
                 path: '/tithe-records',
-                handler: controller.create
+                handler: controller.create,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'GET',
                 path: '/tithe-records',
-                handler: controller.getAll
+                handler: controller.getAll,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'GET',
                 path: '/tithe-records/{id}',
-                handler: controller.getById
+                handler: controller.getById,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'PUT',
                 path: '/tithe-records/{id}',
-                handler: controller.update
+                handler: controller.update,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'DELETE',
                 path: '/tithe-records/{id}',
-                handler: controller.delete
+                handler: controller.delete,
+                options: {
+                    tags: ['api']
+                }
             }
         ]);
     })

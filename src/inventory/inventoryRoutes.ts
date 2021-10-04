@@ -1,5 +1,5 @@
 import { InventoryController } from "./inventoryController";
-import Hapi from "@hapi/hapi";
+import * as Hapi from "@hapi/hapi";
 
 // create instance of controller
 const controller = new InventoryController();
@@ -12,27 +12,42 @@ const inventoryRoutes = {
             {
                 method: 'POST',
                 path: '/inventory',
-                handler: controller.create
+                handler: controller.create,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'GET',
                 path: '/inventory',
-                handler: controller.getAll
+                handler: controller.getAll,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'GET',
                 path: '/inventory/{id}',
-                handler: controller.getById
+                handler: controller.getById,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'PUT',
                 path: '/inventory/{id}',
-                handler: controller.update
+                handler: controller.update,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'DELETE',
                 path: '/inventory/{id}',
-                handler: controller.delete
+                handler: controller.delete,
+                options: {
+                    tags: ['api']
+                }
             }
         ]);
     }

@@ -14,33 +14,48 @@ const attendanceController_1 = require("./attendanceController");
 const controller = new attendanceController_1.AttendanceController();
 // configure the routes
 const attendanceRoutes = {
-    name: "attendance",
+    name: "theAttendance",
     register: (server) => __awaiter(void 0, void 0, void 0, function* () {
         server.route([
             {
                 method: 'POST',
                 path: '/attendance',
-                handler: controller.create
+                handler: controller.create,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'GET',
                 path: '/attendance',
-                handler: controller.getAll
+                handler: controller.getAll,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'GET',
                 path: '/attendance/{id}',
-                handler: controller.getById
+                handler: controller.getById,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'PUT',
                 path: '/attendance/{id}',
-                handler: controller.update
+                handler: controller.update,
+                options: {
+                    tags: ['api']
+                }
             },
             {
                 method: 'DELETE',
                 path: '/attendance/{id}',
-                handler: controller.delete
+                handler: controller.delete,
+                options: {
+                    tags: ['api']
+                }
             }
         ]);
     })
