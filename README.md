@@ -1,4 +1,4 @@
-# rest-api-with-hapi-typescript-tsoa-prisma-and-postgresql
+# REST API With Hapi.js, Typescript, Prisma ORM and Postgresql
 
 ## Description
 
