@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LuckyOkoedion/rest-api-with-hapi-typescript-tsoa-prisma-and-postgresql.git"
+    "url": "git+https://github.com/LuckyOkoedion/rest-api-with-hapi-typescript-prisma-and-postgresql.git"
   },
   "author": "Lucky Okoedion",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LuckyOkoedion/rest-api-with-hapi-typescript-tsoa-prisma-and-postgresql/issues"
+    "url": "https://github.com/LuckyOkoedion/rest-api-with-hapi-typescript-prisma-and-postgresql/issues"
   },
-  "homepage": "https://github.com/LuckyOkoedion/rest-api-with-hapi-typescript-tsoa-prisma-and-postgresql#readme",
+  "homepage": "https://github.com/LuckyOkoedion/rest-api-with-hapi-typescript-prisma-and-postgresql#readme",
   "dependencies": {
     "@hapi/boom": "^9.1.4",
     "@hapi/hapi": "^20.2.0",
