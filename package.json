@@ -4,11 +4,11 @@
   "description": "There are not many working examples out there on how to use one of the alternatives to express js called 'Hapi Js' with typescript and effective setup for complex projects. This is a church office management REST api built with Hapi js, Typescript , Prisma ORM and Postgresql. It is an example of how to structure a hapi js REST Api project into models, routes, controllers and services for effective separation of concerns and unit testing.",
   "scripts": {
     "migrate-db": "npx prisma db push",
+    "prebuild": "rimraf dist",
     "build": "prisma generate && tsc",
     "start": "node dist/server.js",
     "dev": "ts-node-dev --respawn server.ts",
     "test": "TEST=true jest",
-    "test:watch": "TEST=true jest --watch",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
     "prepare": "husky install"
   },

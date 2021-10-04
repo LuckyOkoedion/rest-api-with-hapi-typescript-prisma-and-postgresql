@@ -64,8 +64,3 @@ Test without watching
 $ npm run test
 ```
 
-Test and watch
-
-```bash
-$ npm run test:watch
-```
