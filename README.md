@@ -30,7 +30,7 @@ $ npm install
 
 ## Run Database Migration with Prisma ORM
 
-This will automatically create the relevant tables in the database
+Before this, make sure you set up a postgresql database on your machine and create environment variable named 'DATABASE_URL' with the connection url. Then the following command will automatically create the relevant tables in the database
 
 ```bash
 $ npm run migrate-db
@@ -58,7 +58,7 @@ $ npm run dev
 
 ## Run automated tests
 
-Test without watching
+Note that by design, the first time you run the tests, a couple of the tests will fail because the database will only be populated on this first run. But on subsequent run, all tests will pass.
 
 ```bash
 $ npm run test
